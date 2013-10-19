@@ -30,13 +30,65 @@
         [Foursquare2 authorizeWithCallback:^(BOOL success, id result)
          {
              NSLog(@"Callback success : %@, result : %@", success ? @"yes" : @"no", result);
+             [self performFoursquareChecks];
          }];
     }
     else
     {
         NSLog(@"Foursquare authorized : %@", [Foursquare2 isAuthorized] ? @"yes" : @"no");
+        if(![Foursquare2 isAuthorized])
+        {
+            UILocalNotification* notif = [UILocalNotification new];
+            [notif setAlertBody:@"Authentication issue with Foursquare, the app cannot work"];
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notif];
+            exit(0);
+        }
+        [self performFoursquareChecks];
     }
     return YES;
+}
+
+- (void)performFoursquareChecks
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults objectForKey:@"categories"] == nil)
+    {
+        [Foursquare2 getVenueCategoriesCallback:^(BOOL success, id result)
+         {
+             if(success)
+             {
+                 NSDictionary* response = [result objectForKey:@"response"];
+                 NSArray* categories = [response objectForKey:@"categories"];
+                 [defaults setObject:categories forKey:@"categories"];
+                 [self printCategoriesIn:categories prefix:@"root"];
+             }
+             else
+             {
+                 NSLog(@"Problem getting categories");
+             }
+         }];
+    }
+    else
+    {
+        [self printCategoriesIn:[defaults objectForKey:@"categories"] prefix:@"root"];
+    }
+}
+
+- (void)printCategoriesIn:(NSArray*)categories prefix:(NSString*)prefix
+{
+    for(NSDictionary* category in categories)
+    {
+        NSArray* subCategories = [category objectForKey:@"categories"];
+        NSString* currentCategoryName = [NSString stringWithFormat:@"%@ | %@", prefix, [category objectForKey:@"name"]];
+        if(subCategories != nil)
+        {
+            [self printCategoriesIn:subCategories prefix:currentCategoryName];
+        }
+        else
+        {
+            NSLog(@"%@", currentCategoryName);
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
