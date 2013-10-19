@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+
+#import <Foursquare2.h>
 
 @implementation AppDelegate
 
@@ -16,6 +19,23 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self.window setRootViewController:[RootViewController new]];
+    
+    [Foursquare2 setupFoursquareWithClientId:@"ZCT1VSIHDVGL2U314X2VMSTUE0Q0XUC0SFBGWXL0XJPMVY0S"
+                                      secret:@"YY2LN1OXN03RNATEX3ATWAZNMCD2J3TBGCEN0AWWLS4OK2PO"
+                                 callbackURL:@"NewRoutes://foursquare"];
+    if([Foursquare2 isNeedToAuthorize])
+    {
+        NSLog(@"Need Authorize Foursquare");
+        [Foursquare2 authorizeWithCallback:^(BOOL success, id result)
+         {
+             NSLog(@"Callback success : %@, result : %@", success ? @"yes" : @"no", result);
+         }];
+    }
+    else
+    {
+        NSLog(@"Foursquare authorized : %@", [Foursquare2 isAuthorized] ? @"yes" : @"no");
+    }
     return YES;
 }
 
@@ -44,6 +64,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSLog(@"Foursquare handle URL");
+    return [Foursquare2 handleURL:url];
 }
 
 @end
