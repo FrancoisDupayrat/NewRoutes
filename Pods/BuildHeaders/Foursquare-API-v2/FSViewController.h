@@ -1,0 +1,1 @@
+../../Foursquare-API-v2/Foursquare2/submodule/foursquare-ios-oauth/FSExampleOAuth/FSExampleOAuth/FSViewController.h
