@@ -1,5 +1,5 @@
 //
-//  VenueListMapViewController.h
+//  DirectionsMapViewController.h
 //  NewRoutes
 //
 //  Created by François Dupayrat on 19/10/13.
@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface VenueListMapViewController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate>
+@interface DirectionsMapViewController : UIViewController <MKMapViewDelegate>
 {
-    NSDictionary* category;
     MKMapView* mapView;
 }
 
-@property (nonatomic, retain) NSDictionary* category;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 @end

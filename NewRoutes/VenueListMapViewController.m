@@ -9,6 +9,11 @@
 #import "VenueListMapViewController.h"
 #import <Foursquare2.h>
 #import "LocationManager.h"
+#import "VenueLocation.h"
+#import "VenuesManager.h"
+#import "CategoryListViewController.h"
+#import "DirectionsMapViewController.h"
+#import "VenueDetailViewController.h"
 
 @interface VenueListMapViewController ()
 
@@ -45,12 +50,102 @@
                                        NSDictionary* response = [result objectForKey:@"response"];
                                        NSArray* venues = (NSArray*)[response objectForKey:@"venues"];
                                        NSLog(@"venues number : %d", venues.count);
+                                       
+                                       for (id<MKAnnotation> annotation in mapView.annotations) {
+                                           [mapView removeAnnotation:annotation];
+                                       }
+                                       
                                        for(NSDictionary* venue in venues)
                                        {
+                                           NSDictionary* location = [venue objectForKey:@"location"];
                                            NSLog(@"venue : %@", [venue objectForKey:@"name"]);
+                                           NSNumber * latitude = [location objectForKey:@"lat"];
+                                           NSNumber * longitude = [location objectForKey:@"lng"];
+                                           
+                                           CLLocationCoordinate2D coordinate;
+                                           coordinate.latitude = latitude.doubleValue;
+                                           coordinate.longitude = longitude.doubleValue;
+                                           VenueLocation *annotation = [[VenueLocation alloc] initWithName:[venue objectForKey:@"name"]
+                                                                                                        id:[venue objectForKey:@"id"]
+                                                                                                coordinate:coordinate] ;
+                                           [mapView addAnnotation:annotation];
                                        }
                                    }];
+    mapView.delegate = self;
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance([LocationManager sharedManager].location, 10000, 10000);
+    [mapView setRegion:viewRegion animated:YES];
+    
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapViewParam viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"VenueLocation";
+    if ([annotation isKindOfClass:[VenueLocation class]]) {
+        
+        MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            MKPinAnnotationView *pin =[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+            pin.canShowCallout = YES;
+            pin.animatesDrop = NO;
+            pin.draggable = NO;
+            annotationView = pin;
+            annotationView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            UIButton* go = [UIButton buttonWithType:UIButtonTypeSystem];
+            [go setTitle:@"Go" forState:UIControlStateNormal];
+            CGRect buttonFrame = go.frame;
+            buttonFrame.size = CGSizeMake(32, 32); //Height is limited to 32 pixels
+            go.frame = buttonFrame;
+            annotationView.rightCalloutAccessoryView = go;
+        } else {
+            annotationView.annotation = annotation;
+        }
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    UIButton* button = (UIButton*)control;
+    VenueLocation* venue = view.annotation;
+    if(button.buttonType == UIButtonTypeDetailDisclosure)
+    {
+        VenueDetailViewController* vc = [[VenueDetailViewController alloc] initWithNibName:@"VenueDetailViewController" bundle:nil];
+        [vc setFID:venue.fID];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        [[VenuesManager sharedManager] selectVenue:venue];
+
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Enregistré !"
+                                                        message:[NSString stringWithFormat:@"Point d'intérêt %@ enregistré. Vous avez actuellement %d points sur votre parcours", venue.name, [VenuesManager sharedManager].selectedVenues.count]
+                                                       delegate:self
+                                              cancelButtonTitle:@"Voir le parcours"
+                                              otherButtonTitles:@"Chercher un autre", nil];
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        [alert dismissWithClickedButtonIndex:1 animated:YES];
+		[alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        DirectionsMapViewController* vc = [[DirectionsMapViewController alloc] initWithNibName:@"DirectionsMapViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

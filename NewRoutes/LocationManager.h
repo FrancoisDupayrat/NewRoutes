@@ -18,6 +18,7 @@
 
 @property (nonatomic, readonly) NSNumber* latitude;
 @property (nonatomic, readonly) NSNumber* longitude;
+@property (nonatomic, readonly) CLLocationCoordinate2D location;
 
 + (LocationManager*) sharedManager;
 

@@ -29,6 +29,13 @@
 		6AFC4FCA1812DF3F003BB990 /* VenueListMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FC81812DF3F003BB990 /* VenueListMapViewController.m */; };
 		6AFC4FCB1812DF3F003BB990 /* VenueListMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FC91812DF3F003BB990 /* VenueListMapViewController.xib */; };
 		6AFC4FCD1812E0BC003BB990 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFC4FCC1812E0BC003BB990 /* MapKit.framework */; };
+		6AFC4FD01812E337003BB990 /* VenueLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FCF1812E337003BB990 /* VenueLocation.m */; };
+		6AFC4FD51812FF94003BB990 /* VenuesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FD41812FF94003BB990 /* VenuesManager.m */; };
+		6AFC4FD9181304E1003BB990 /* DirectionsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FD7181304E1003BB990 /* DirectionsMapViewController.m */; };
+		6AFC4FDA181304E1003BB990 /* DirectionsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FD8181304E1003BB990 /* DirectionsMapViewController.xib */; };
+		6AFC4FDE18131828003BB990 /* VenueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */; };
+		6AFC4FDF18131828003BB990 /* VenueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */; };
+		6AFC4FE118131C28003BB990 /* v-grand.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FE018131C28003BB990 /* v-grand.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,17 @@
 		6AFC4FC81812DF3F003BB990 /* VenueListMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueListMapViewController.m; sourceTree = "<group>"; };
 		6AFC4FC91812DF3F003BB990 /* VenueListMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueListMapViewController.xib; sourceTree = "<group>"; };
 		6AFC4FCC1812E0BC003BB990 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6AFC4FCE1812E337003BB990 /* VenueLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueLocation.h; sourceTree = "<group>"; };
+		6AFC4FCF1812E337003BB990 /* VenueLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueLocation.m; sourceTree = "<group>"; };
+		6AFC4FD31812FF94003BB990 /* VenuesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesManager.h; sourceTree = "<group>"; };
+		6AFC4FD41812FF94003BB990 /* VenuesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesManager.m; sourceTree = "<group>"; };
+		6AFC4FD6181304E1003BB990 /* DirectionsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionsMapViewController.h; sourceTree = "<group>"; };
+		6AFC4FD7181304E1003BB990 /* DirectionsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionsMapViewController.m; sourceTree = "<group>"; };
+		6AFC4FD8181304E1003BB990 /* DirectionsMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectionsMapViewController.xib; sourceTree = "<group>"; };
+		6AFC4FDB18131828003BB990 /* VenueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueDetailViewController.h; sourceTree = "<group>"; };
+		6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailViewController.m; sourceTree = "<group>"; };
+		6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueDetailViewController.xib; sourceTree = "<group>"; };
+		6AFC4FE018131C28003BB990 /* v-grand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "v-grand.png"; sourceTree = "<group>"; };
 		AC77328A7F814F5F9F0BD4EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB598447C20045C98FC42D4E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -154,6 +172,16 @@
 				6AFC4FC71812DF3F003BB990 /* VenueListMapViewController.h */,
 				6AFC4FC81812DF3F003BB990 /* VenueListMapViewController.m */,
 				6AFC4FC91812DF3F003BB990 /* VenueListMapViewController.xib */,
+				6AFC4FD6181304E1003BB990 /* DirectionsMapViewController.h */,
+				6AFC4FD7181304E1003BB990 /* DirectionsMapViewController.m */,
+				6AFC4FD8181304E1003BB990 /* DirectionsMapViewController.xib */,
+				6AFC4FCE1812E337003BB990 /* VenueLocation.h */,
+				6AFC4FCF1812E337003BB990 /* VenueLocation.m */,
+				6AFC4FD31812FF94003BB990 /* VenuesManager.h */,
+				6AFC4FD41812FF94003BB990 /* VenuesManager.m */,
+				6AFC4FDB18131828003BB990 /* VenueDetailViewController.h */,
+				6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */,
+				6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */,
 			);
 			path = NewRoutes;
 			sourceTree = "<group>";
@@ -164,6 +192,7 @@
 				6ABCB3EC18129FFB00A10290 /* NewRoutes-Info.plist */,
 				6ABCB3ED18129FFB00A10290 /* InfoPlist.strings */,
 				6ABCB3F018129FFB00A10290 /* main.m */,
+				6AFC4FE018131C28003BB990 /* v-grand.png */,
 				6ABCB3F218129FFB00A10290 /* NewRoutes-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -265,10 +294,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFC4FCB1812DF3F003BB990 /* VenueListMapViewController.xib in Resources */,
+				6AFC4FDA181304E1003BB990 /* DirectionsMapViewController.xib in Resources */,
 				6AFC4FC61812D164003BB990 /* CategoryListViewController.xib in Resources */,
 				6ABCB3EF18129FFB00A10290 /* InfoPlist.strings in Resources */,
 				6ABCB3F718129FFB00A10290 /* Images.xcassets in Resources */,
+				6AFC4FE118131C28003BB990 /* v-grand.png in Resources */,
 				6AFC4FBC1812BA92003BB990 /* RootViewController.xib in Resources */,
+				6AFC4FDF18131828003BB990 /* VenueDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,8 +354,12 @@
 			files = (
 				6AFC4FBF1812C4DD003BB990 /* LocationManager.m in Sources */,
 				6ABCB3F518129FFB00A10290 /* AppDelegate.m in Sources */,
+				6AFC4FD9181304E1003BB990 /* DirectionsMapViewController.m in Sources */,
+				6AFC4FDE18131828003BB990 /* VenueDetailViewController.m in Sources */,
 				6ABCB3F118129FFB00A10290 /* main.m in Sources */,
+				6AFC4FD51812FF94003BB990 /* VenuesManager.m in Sources */,
 				6AFC4FCA1812DF3F003BB990 /* VenueListMapViewController.m in Sources */,
+				6AFC4FD01812E337003BB990 /* VenueLocation.m in Sources */,
 				6AFC4FC51812D164003BB990 /* CategoryListViewController.m in Sources */,
 				6AFC4FBB1812BA92003BB990 /* RootViewController.m in Sources */,
 			);

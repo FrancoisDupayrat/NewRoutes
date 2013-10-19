@@ -57,6 +57,12 @@ static LocationManager* _sharedManager = nil;
     return [NSNumber numberWithDouble:lastLocation.coordinate.longitude];
 }
 
+
+- (CLLocationCoordinate2D) location
+{
+    return lastLocation.coordinate;
+}
+
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     [self geolocUser];
 }
