@@ -10,4 +10,6 @@
 
 @interface RootViewController : UIViewController
 
+- (IBAction)startSelection:(id)sender;
+
 @end

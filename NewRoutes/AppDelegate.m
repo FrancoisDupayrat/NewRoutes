@@ -8,18 +8,27 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "LocationManager.h"
 
 #import <Foursquare2.h>
 
 @implementation AppDelegate
 
+@synthesize navigationController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    RootViewController* controller = [RootViewController new];
+    [self.window setRootViewController:controller];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
-    [self.window setRootViewController:[RootViewController new]];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [LocationManager sharedManager];
     
     [Foursquare2 setupFoursquareWithClientId:@"ZCT1VSIHDVGL2U314X2VMSTUE0Q0XUC0SFBGWXL0XJPMVY0S"
                                       secret:@"YY2LN1OXN03RNATEX3ATWAZNMCD2J3TBGCEN0AWWLS4OK2PO"
@@ -86,7 +95,7 @@
         }
         else
         {
-            NSLog(@"%@", currentCategoryName);
+            NSLog(@"%@, id : %@", currentCategoryName, [category objectForKey:@"id"]);
         }
     }
 }
