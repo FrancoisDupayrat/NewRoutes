@@ -80,7 +80,8 @@
             redirectUrl = [venue objectForKey:@"url"] != nil ? [venue objectForKey:@"url"] : [venue objectForKey:@"canonicalUrl"];
             
             [descriptionLabel setText:[venue objectForKey:@"description"] != nil ? [venue objectForKey:@"description"] : @"Aucune information disponible"];
-            [hoursLabel setText:[venue objectForKey:@"hours"] != nil ? [venue objectForKey:@"hours"] : @"Heures d'ouverture inconnues"];
+            NSDictionary* hours = [venue objectForKey:@"hours"];
+            [hoursLabel setText:[venue objectForKey:@"hours"] != nil ? [hours objectForKey:@"status"] : @"Heures d'ouverture inconnues"];
             //TODO : photo
         }];
     }
