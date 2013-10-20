@@ -25,6 +25,9 @@
         categories = [NSMutableArray new];
         NSArray* baseCategories =  [[NSUserDefaults standardUserDefaults] objectForKey:@"categories"];
         [self addCategoriesFrom:baseCategories];
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *path = [bundle pathForResource:@"SelectedCategories" ofType:@"plist"];
+        sections = [NSArray arrayWithContentsOfFile:path];
     }
     return self;
 }
@@ -37,6 +40,7 @@
         if(subCategories != nil)
         {
             [self addCategoriesFrom:subCategories];
+            [categories addObject:category];
         }
         else
         {
@@ -68,21 +72,28 @@
                 initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AutoCompleteRowIdentifier];
         
     }
-    
-    cell.textLabel.text = [[categories objectAtIndex:indexPath.row] objectForKey:@"name"];
+    NSString* fId = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]+1];
+    NSDictionary* category = [self categoryForId:fId];
+    cell.textLabel.text = [category objectForKey:@"name"];
     return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return categories.count;
+    return ((NSArray*)[sections objectAtIndex:section]).count - 1;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
    willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //TODO : select category at indexPath.row
-    NSDictionary* category = [categories objectAtIndex:indexPath.row];
+    NSString* fId = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]+1];
+    NSDictionary* category = [self categoryForId:fId];
     NSLog(@"selected category %@, id %@", [category objectForKey:@"name"], [category objectForKey:@"id"]);
     
     VenueListMapViewController* vc = [[VenueListMapViewController alloc] initWithNibName:@"VenueListMapViewController" bundle:nil];
@@ -93,8 +104,21 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    //TODO : list according parent category
-    return @"A proximité";
+    NSString* fId = [[sections objectAtIndex:section] objectAtIndex:0];
+    NSDictionary* category = [self categoryForId:fId];
+    return category != nil ? [category objectForKey:@"name"] : fId;
+}
+
+- (NSDictionary*) categoryForId:(NSString*)fID
+{
+    for(NSDictionary* category in categories)
+    {
+        if([[category objectForKey:@"id"] isEqualToString:fID])
+        {
+            return category;
+        }
+    }
+    return nil;
 }
 
 @end

@@ -13,6 +13,7 @@
     UITableView* tableView;
     NSMutableArray* categories;
     UINavigationItem* navTitle;
+    NSArray* sections;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
