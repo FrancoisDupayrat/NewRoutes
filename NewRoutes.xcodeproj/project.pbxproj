@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4D6E1C244F0A48C39C94335E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC77328A7F814F5F9F0BD4EF /* libPods.a */; };
 		6A84598E1813E780006B2194 /* green_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A84598D1813E780006B2194 /* green_pin.png */; };
+		6A8459931813F3ED006B2194 /* FullIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A84598F1813F3ED006B2194 /* FullIcon.png */; };
+		6A8459941813F3ED006B2194 /* Icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459901813F3ED006B2194 /* Icon76.png */; };
+		6A8459951813F3ED006B2194 /* Icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459911813F3ED006B2194 /* Icon120.png */; };
+		6A8459961813F3ED006B2194 /* Icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459921813F3ED006B2194 /* Icon152.png */; };
 		6ABCB3E518129FFB00A10290 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABCB3E418129FFB00A10290 /* Foundation.framework */; };
 		6ABCB3E718129FFB00A10290 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABCB3E618129FFB00A10290 /* CoreGraphics.framework */; };
 		6ABCB3E918129FFB00A10290 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABCB3E818129FFB00A10290 /* UIKit.framework */; };
@@ -61,6 +65,10 @@
 		6A8459891813D306006B2194 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		6A84598B1813D325006B2194 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = usr/lib/libicucore.A.dylib; sourceTree = SDKROOT; };
 		6A84598D1813E780006B2194 /* green_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_pin.png; sourceTree = "<group>"; };
+		6A84598F1813F3ED006B2194 /* FullIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FullIcon.png; sourceTree = "<group>"; };
+		6A8459901813F3ED006B2194 /* Icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon76.png; sourceTree = "<group>"; };
+		6A8459911813F3ED006B2194 /* Icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon120.png; sourceTree = "<group>"; };
+		6A8459921813F3ED006B2194 /* Icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon152.png; sourceTree = "<group>"; };
 		6ABCB3E118129FFB00A10290 /* NewRoutes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewRoutes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABCB3E418129FFB00A10290 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6ABCB3E618129FFB00A10290 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -201,6 +209,10 @@
 			children = (
 				6ABCB3EC18129FFB00A10290 /* NewRoutes-Info.plist */,
 				6ABCB3ED18129FFB00A10290 /* InfoPlist.strings */,
+				6A84598F1813F3ED006B2194 /* FullIcon.png */,
+				6A8459901813F3ED006B2194 /* Icon76.png */,
+				6A8459911813F3ED006B2194 /* Icon120.png */,
+				6A8459921813F3ED006B2194 /* Icon152.png */,
 				6ABCB3F018129FFB00A10290 /* main.m */,
 				6AFC4FE018131C28003BB990 /* v-grand.png */,
 				6ABCB3F218129FFB00A10290 /* NewRoutes-Prefix.pch */,
@@ -367,17 +379,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8459951813F3ED006B2194 /* Icon120.png in Resources */,
 				6AFC4FCB1812DF3F003BB990 /* VenueListMapViewController.xib in Resources */,
+				6A8459941813F3ED006B2194 /* Icon76.png in Resources */,
 				6AFC4FFC1813CFE9003BB990 /* SelectedCategories.plist in Resources */,
 				6A84598E1813E780006B2194 /* green_pin.png in Resources */,
 				6AFC4FDA181304E1003BB990 /* DirectionsMapViewController.xib in Resources */,
 				6AFC4FE61813B9B3003BB990 /* VenuesOrderMapViewController.xib in Resources */,
 				6AFC4FC61812D164003BB990 /* CategoryListViewController.xib in Resources */,
 				6ABCB3EF18129FFB00A10290 /* InfoPlist.strings in Resources */,
+				6A8459931813F3ED006B2194 /* FullIcon.png in Resources */,
 				6ABCB3F718129FFB00A10290 /* Images.xcassets in Resources */,
 				6AFC4FE118131C28003BB990 /* v-grand.png in Resources */,
 				6AFC4FBC1812BA92003BB990 /* RootViewController.xib in Resources */,
 				6AFC4FDF18131828003BB990 /* VenueDetailViewController.xib in Resources */,
+				6A8459961813F3ED006B2194 /* Icon152.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
