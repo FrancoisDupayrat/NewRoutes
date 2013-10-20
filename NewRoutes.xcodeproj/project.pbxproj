@@ -36,6 +36,14 @@
 		6AFC4FDE18131828003BB990 /* VenueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */; };
 		6AFC4FDF18131828003BB990 /* VenueDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */; };
 		6AFC4FE118131C28003BB990 /* v-grand.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FE018131C28003BB990 /* v-grand.png */; };
+		6AFC4FE51813B9B3003BB990 /* VenuesOrderMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FE31813B9B3003BB990 /* VenuesOrderMapViewController.m */; };
+		6AFC4FE61813B9B3003BB990 /* VenuesOrderMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FE41813B9B3003BB990 /* VenuesOrderMapViewController.xib */; };
+		6AFC4FF51813CE38003BB990 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FF01813CE38003BB990 /* Place.m */; };
+		6AFC4FF61813CE38003BB990 /* PlaceMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FF21813CE38003BB990 /* PlaceMark.m */; };
+		6AFC4FF71813CE38003BB990 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FF41813CE38003BB990 /* MapView.m */; };
+		6AFC4FFC1813CFE9003BB990 /* SelectedCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AFC4FFB1813CFE9003BB990 /* SelectedCategories.plist */; };
+		6AFC4FFF1813D0C5003BB990 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFC4FFE1813D0C5003BB990 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6AFC50011813D1EF003BB990 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFC50001813D1EF003BB990 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A8459891813D306006B2194 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		6A84598B1813D325006B2194 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = usr/lib/libicucore.A.dylib; sourceTree = SDKROOT; };
 		6ABCB3E118129FFB00A10290 /* NewRoutes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewRoutes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABCB3E418129FFB00A10290 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6ABCB3E618129FFB00A10290 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,6 +99,19 @@
 		6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailViewController.m; sourceTree = "<group>"; };
 		6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueDetailViewController.xib; sourceTree = "<group>"; };
 		6AFC4FE018131C28003BB990 /* v-grand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "v-grand.png"; sourceTree = "<group>"; };
+		6AFC4FE21813B9B3003BB990 /* VenuesOrderMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesOrderMapViewController.h; sourceTree = "<group>"; };
+		6AFC4FE31813B9B3003BB990 /* VenuesOrderMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesOrderMapViewController.m; sourceTree = "<group>"; };
+		6AFC4FE41813B9B3003BB990 /* VenuesOrderMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenuesOrderMapViewController.xib; sourceTree = "<group>"; };
+		6AFC4FEF1813CE38003BB990 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		6AFC4FF01813CE38003BB990 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		6AFC4FF11813CE38003BB990 /* PlaceMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceMark.h; sourceTree = "<group>"; };
+		6AFC4FF21813CE38003BB990 /* PlaceMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceMark.m; sourceTree = "<group>"; };
+		6AFC4FF31813CE38003BB990 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		6AFC4FF41813CE38003BB990 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		6AFC4FFB1813CFE9003BB990 /* SelectedCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SelectedCategories.plist; sourceTree = "<group>"; };
+		6AFC4FFD1813D0C5003BB990 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		6AFC4FFE1813D0C5003BB990 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		6AFC50001813D1EF003BB990 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AC77328A7F814F5F9F0BD4EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB598447C20045C98FC42D4E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -98,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFC50011813D1EF003BB990 /* Security.framework in Frameworks */,
 				6AFC4FCD1812E0BC003BB990 /* MapKit.framework in Frameworks */,
 				6AFC4FC11812C4FB003BB990 /* CoreLocation.framework in Frameworks */,
 				6ABCB3E718129FFB00A10290 /* CoreGraphics.framework in Frameworks */,
@@ -143,6 +167,9 @@
 		6ABCB3E318129FFB00A10290 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A84598B1813D325006B2194 /* libicucore.A.dylib */,
+				6A8459891813D306006B2194 /* libicucore.dylib */,
+				6AFC50001813D1EF003BB990 /* Security.framework */,
 				6AFC4FCC1812E0BC003BB990 /* MapKit.framework */,
 				6AFC4FC01812C4FB003BB990 /* CoreLocation.framework */,
 				6ABCB3E418129FFB00A10290 /* Foundation.framework */,
@@ -157,31 +184,12 @@
 		6ABCB3EA18129FFB00A10290 /* NewRoutes */ = {
 			isa = PBXGroup;
 			children = (
-				6ABCB3F318129FFB00A10290 /* AppDelegate.h */,
-				6ABCB3F418129FFB00A10290 /* AppDelegate.m */,
+				6AFC4FEE1813CE1F003BB990 /* Directions */,
 				6ABCB3F618129FFB00A10290 /* Images.xcassets */,
 				6ABCB3EB18129FFB00A10290 /* Supporting Files */,
-				6AFC4FB81812BA92003BB990 /* RootViewController.h */,
-				6AFC4FB91812BA92003BB990 /* RootViewController.m */,
-				6AFC4FBA1812BA92003BB990 /* RootViewController.xib */,
-				6AFC4FBD1812C4DD003BB990 /* LocationManager.h */,
-				6AFC4FBE1812C4DD003BB990 /* LocationManager.m */,
-				6AFC4FC21812D164003BB990 /* CategoryListViewController.h */,
-				6AFC4FC31812D164003BB990 /* CategoryListViewController.m */,
-				6AFC4FC41812D164003BB990 /* CategoryListViewController.xib */,
-				6AFC4FC71812DF3F003BB990 /* VenueListMapViewController.h */,
-				6AFC4FC81812DF3F003BB990 /* VenueListMapViewController.m */,
-				6AFC4FC91812DF3F003BB990 /* VenueListMapViewController.xib */,
-				6AFC4FD6181304E1003BB990 /* DirectionsMapViewController.h */,
-				6AFC4FD7181304E1003BB990 /* DirectionsMapViewController.m */,
-				6AFC4FD8181304E1003BB990 /* DirectionsMapViewController.xib */,
-				6AFC4FCE1812E337003BB990 /* VenueLocation.h */,
-				6AFC4FCF1812E337003BB990 /* VenueLocation.m */,
-				6AFC4FD31812FF94003BB990 /* VenuesManager.h */,
-				6AFC4FD41812FF94003BB990 /* VenuesManager.m */,
-				6AFC4FDB18131828003BB990 /* VenueDetailViewController.h */,
-				6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */,
-				6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */,
+				6AFC4FE71813B9B7003BB990 /* Root delegate/VC */,
+				6AFC4FE81813B9E2003BB990 /* View controllers */,
+				6AFC4FE91813B9FF003BB990 /* Venues/Location */,
 			);
 			path = NewRoutes;
 			sourceTree = "<group>";
@@ -214,6 +222,69 @@
 				6ABCB40618129FFB00A10290 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AFC4FE71813B9B7003BB990 /* Root delegate/VC */ = {
+			isa = PBXGroup;
+			children = (
+				6ABCB3F318129FFB00A10290 /* AppDelegate.h */,
+				6ABCB3F418129FFB00A10290 /* AppDelegate.m */,
+				6AFC4FB81812BA92003BB990 /* RootViewController.h */,
+				6AFC4FB91812BA92003BB990 /* RootViewController.m */,
+				6AFC4FBA1812BA92003BB990 /* RootViewController.xib */,
+			);
+			name = "Root delegate/VC";
+			sourceTree = "<group>";
+		};
+		6AFC4FE81813B9E2003BB990 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AFC4FC21812D164003BB990 /* CategoryListViewController.h */,
+				6AFC4FC31812D164003BB990 /* CategoryListViewController.m */,
+				6AFC4FC41812D164003BB990 /* CategoryListViewController.xib */,
+				6AFC4FC71812DF3F003BB990 /* VenueListMapViewController.h */,
+				6AFC4FC81812DF3F003BB990 /* VenueListMapViewController.m */,
+				6AFC4FC91812DF3F003BB990 /* VenueListMapViewController.xib */,
+				6AFC4FE21813B9B3003BB990 /* VenuesOrderMapViewController.h */,
+				6AFC4FE31813B9B3003BB990 /* VenuesOrderMapViewController.m */,
+				6AFC4FE41813B9B3003BB990 /* VenuesOrderMapViewController.xib */,
+				6AFC4FD6181304E1003BB990 /* DirectionsMapViewController.h */,
+				6AFC4FD7181304E1003BB990 /* DirectionsMapViewController.m */,
+				6AFC4FD8181304E1003BB990 /* DirectionsMapViewController.xib */,
+				6AFC4FDB18131828003BB990 /* VenueDetailViewController.h */,
+				6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */,
+				6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */,
+			);
+			name = "View controllers";
+			sourceTree = "<group>";
+		};
+		6AFC4FE91813B9FF003BB990 /* Venues/Location */ = {
+			isa = PBXGroup;
+			children = (
+				6AFC4FBD1812C4DD003BB990 /* LocationManager.h */,
+				6AFC4FBE1812C4DD003BB990 /* LocationManager.m */,
+				6AFC4FCE1812E337003BB990 /* VenueLocation.h */,
+				6AFC4FCF1812E337003BB990 /* VenueLocation.m */,
+				6AFC4FD31812FF94003BB990 /* VenuesManager.h */,
+				6AFC4FD41812FF94003BB990 /* VenuesManager.m */,
+				6AFC4FFB1813CFE9003BB990 /* SelectedCategories.plist */,
+			);
+			name = Venues/Location;
+			sourceTree = "<group>";
+		};
+		6AFC4FEE1813CE1F003BB990 /* Directions */ = {
+			isa = PBXGroup;
+			children = (
+				6AFC4FEF1813CE38003BB990 /* Place.h */,
+				6AFC4FF01813CE38003BB990 /* Place.m */,
+				6AFC4FF11813CE38003BB990 /* PlaceMark.h */,
+				6AFC4FF21813CE38003BB990 /* PlaceMark.m */,
+				6AFC4FF31813CE38003BB990 /* MapView.h */,
+				6AFC4FF41813CE38003BB990 /* MapView.m */,
+				6AFC4FFD1813D0C5003BB990 /* RegexKitLite.h */,
+				6AFC4FFE1813D0C5003BB990 /* RegexKitLite.m */,
+			);
+			name = Directions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +365,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFC4FCB1812DF3F003BB990 /* VenueListMapViewController.xib in Resources */,
+				6AFC4FFC1813CFE9003BB990 /* SelectedCategories.plist in Resources */,
 				6AFC4FDA181304E1003BB990 /* DirectionsMapViewController.xib in Resources */,
+				6AFC4FE61813B9B3003BB990 /* VenuesOrderMapViewController.xib in Resources */,
 				6AFC4FC61812D164003BB990 /* CategoryListViewController.xib in Resources */,
 				6ABCB3EF18129FFB00A10290 /* InfoPlist.strings in Resources */,
 				6ABCB3F718129FFB00A10290 /* Images.xcassets in Resources */,
@@ -353,13 +426,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFC4FBF1812C4DD003BB990 /* LocationManager.m in Sources */,
+				6AFC4FE51813B9B3003BB990 /* VenuesOrderMapViewController.m in Sources */,
 				6ABCB3F518129FFB00A10290 /* AppDelegate.m in Sources */,
+				6AFC4FFF1813D0C5003BB990 /* RegexKitLite.m in Sources */,
+				6AFC4FF51813CE38003BB990 /* Place.m in Sources */,
 				6AFC4FD9181304E1003BB990 /* DirectionsMapViewController.m in Sources */,
+				6AFC4FF61813CE38003BB990 /* PlaceMark.m in Sources */,
 				6AFC4FDE18131828003BB990 /* VenueDetailViewController.m in Sources */,
 				6ABCB3F118129FFB00A10290 /* main.m in Sources */,
 				6AFC4FD51812FF94003BB990 /* VenuesManager.m in Sources */,
 				6AFC4FCA1812DF3F003BB990 /* VenueListMapViewController.m in Sources */,
 				6AFC4FD01812E337003BB990 /* VenueLocation.m in Sources */,
+				6AFC4FF71813CE38003BB990 /* MapView.m in Sources */,
 				6AFC4FC51812D164003BB990 /* CategoryListViewController.m in Sources */,
 				6AFC4FBB1812BA92003BB990 /* RootViewController.m in Sources */,
 			);
@@ -439,6 +517,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -472,6 +551,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -484,7 +564,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NewRoutes/NewRoutes-Prefix.pch";
 				INFOPLIST_FILE = "NewRoutes/NewRoutes-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					SystemConfiguration,
+					"-licucore",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -498,7 +585,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NewRoutes/NewRoutes-Prefix.pch";
 				INFOPLIST_FILE = "NewRoutes/NewRoutes-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					SystemConfiguration,
+					"-licucore",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

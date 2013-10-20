@@ -16,6 +16,7 @@
 @implementation CategoryListViewController
 
 @synthesize tableView;
+@synthesize navTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -93,7 +94,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     //TODO : list according parent category
-    return @"Points d'intérêts";
+    return @"A proximité";
 }
 
 @end

@@ -12,8 +12,9 @@
 #import "VenueLocation.h"
 #import "VenuesManager.h"
 #import "CategoryListViewController.h"
-#import "DirectionsMapViewController.h"
+#import "VenuesOrderMapViewController.h"
 #import "VenueDetailViewController.h"
+#import "VenuesManager.h"
 
 @interface VenueListMapViewController ()
 
@@ -23,6 +24,9 @@
 
 @synthesize category;
 @synthesize mapView;
+@synthesize venuesCountItem;
+@synthesize nextButton;
+@synthesize navTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +40,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextScreen:)];
+    [navTitle setTitle:[category objectForKey:@"name"]];
+    NSArray* venues = [VenuesManager sharedManager].selectedVenues;
+    int count = (int)venues.count;
+    NSString* title = count == 0 ? @"Aucun lieu sélectionné" :
+    count == 1 ? @"Un lieu sélectionné" :
+    [NSString stringWithFormat:@"%d lieux sélectionnés", count];
+    [venuesCountItem setTitle:title];
+    
+    
+    for(NSDictionary* venue in venues)
+    {
+        NSLog(@"selected venue : %@", [venue objectForKey:@"name"]);
+        NSNumber * latitude = [venue objectForKey:@"lat"];
+        NSNumber * longitude = [venue objectForKey:@"lng"];
+        
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = latitude.doubleValue;
+        coordinate.longitude = longitude.doubleValue;
+        VenueLocation *annotation = [[VenueLocation alloc] initWithName:[venue objectForKey:@"name"]
+                                                                     id:[venue objectForKey:@"id"]
+                                                             coordinate:coordinate];
+        annotation.isSelected = YES;
+        [mapView addAnnotation:annotation];
+    }
+    
     [Foursquare2 searchVenuesNearByLatitude:[LocationManager sharedManager].latitude
                                   longitude:[LocationManager sharedManager].longitude
                                  accuracyLL:NULL
@@ -49,16 +79,12 @@
                                    callback:^(BOOL success, id result) {
                                        NSDictionary* response = [result objectForKey:@"response"];
                                        NSArray* venues = (NSArray*)[response objectForKey:@"venues"];
-                                       NSLog(@"venues number : %d", venues.count);
-                                       
-                                       for (id<MKAnnotation> annotation in mapView.annotations) {
-                                           [mapView removeAnnotation:annotation];
-                                       }
+                                       NSLog(@"venues number : %d", (int)venues.count);
                                        
                                        for(NSDictionary* venue in venues)
                                        {
                                            NSDictionary* location = [venue objectForKey:@"location"];
-                                           NSLog(@"venue : %@", [venue objectForKey:@"name"]);
+                                           NSLog(@"available venue : %@", [venue objectForKey:@"name"]);
                                            NSNumber * latitude = [location objectForKey:@"lat"];
                                            NSNumber * longitude = [location objectForKey:@"lng"];
                                            
@@ -83,8 +109,9 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapViewParam viewForAnnotation:(id <MKAnnotation>)annotation {
-    static NSString *identifier = @"VenueLocation";
     if ([annotation isKindOfClass:[VenueLocation class]]) {
+        VenueLocation* venue = annotation;
+        NSString *identifier = venue.isSelected ? @"SelectedVenueLocation" : @"AvailableVenueLocation";
         
         MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         if (annotationView == nil) {
@@ -92,10 +119,11 @@
             pin.canShowCallout = YES;
             pin.animatesDrop = NO;
             pin.draggable = NO;
+            pin.pinColor = venue.isSelected ? MKPinAnnotationColorGreen : MKPinAnnotationColorRed;
             annotationView = pin;
             annotationView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             UIButton* go = [UIButton buttonWithType:UIButtonTypeSystem];
-            [go setTitle:@"Go" forState:UIControlStateNormal];
+            [go setTitle:venue.isSelected ? @"Retirer" : @"Go" forState:UIControlStateNormal];
             CGRect buttonFrame = go.frame;
             buttonFrame.size = CGSizeMake(32, 32); //Height is limited to 32 pixels
             go.frame = buttonFrame;
@@ -110,7 +138,7 @@
     return nil;
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+- (void)mapView:(MKMapView *)mapViewParam annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     UIButton* button = (UIButton*)control;
     VenueLocation* venue = view.annotation;
@@ -119,6 +147,11 @@
         VenueDetailViewController* vc = [[VenueDetailViewController alloc] initWithNibName:@"VenueDetailViewController" bundle:nil];
         [vc setFID:venue.fID];
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if(venue.isSelected)
+    {
+        [[VenuesManager sharedManager] removeVenue:venue.fID];
+        [mapView removeAnnotation:venue];
     }
     else
     {
@@ -139,13 +172,23 @@
 {
     if(buttonIndex == 0)
     {
-        DirectionsMapViewController* vc = [[DirectionsMapViewController alloc] initWithNibName:@"DirectionsMapViewController" bundle:nil];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self nextScreen:nil];
     }
     else
     {
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+- (IBAction) showSelectVenuesList:(id)sender
+{
+    
+}
+
+- (IBAction) nextScreen:(id)sender
+{
+    VenuesOrderMapViewController* vc = [[VenuesOrderMapViewController alloc] initWithNibName:@"VenuesOrderMapViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

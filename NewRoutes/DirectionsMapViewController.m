@@ -19,6 +19,8 @@
 @implementation DirectionsMapViewController
 
 @synthesize mapView;
+@synthesize venuesCountItem;
+@synthesize navTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,8 +33,9 @@
 
 - (void)viewDidLoad
 {
+    [mapView initWithFrame:mapView.frame];
     NSArray* venues = [[VenuesManager sharedManager] selectedVenues];
-    
+    VenueLocation* previous = nil;
     for(NSDictionary* venue in venues)
     {
         NSLog(@"venue : %@", [venue objectForKey:@"name"]);
@@ -45,9 +48,33 @@
         VenueLocation *annotation = [[VenueLocation alloc] initWithName:[venue objectForKey:@"name"]
                                                                      id:[venue objectForKey:@"id"]
                                                              coordinate:coordinate] ;
-        [mapView addAnnotation:annotation];
+        [mapView.mapView addAnnotation:annotation];
+        Place* from = [Place new];
+        Place* to = [Place new];
+        if(previous == nil)
+        {
+            from.latitude = [[LocationManager sharedManager].latitude doubleValue];
+            from.longitude = [[LocationManager sharedManager].longitude doubleValue];
+        }
+        else
+        {
+            from.latitude = previous.coordinate.latitude;
+            from.longitude = previous.coordinate.longitude;
+        }
+        to.latitude = annotation.coordinate.latitude;
+        to.longitude = annotation.coordinate.longitude;
+        [mapView showRouteFrom:from to:to];
+        previous = annotation;
     }
-    mapView.delegate = self;
+    
+    Place* from = [Place new];
+    Place* to = [Place new];
+    from.latitude = previous.coordinate.latitude;
+    from.longitude = previous.coordinate.longitude;
+    to.latitude = [[LocationManager sharedManager].latitude doubleValue];
+    to.longitude = [[LocationManager sharedManager].longitude doubleValue];
+    [mapView showRouteFrom:from to:to];
+    //mapView.mapView.delegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -55,52 +82,12 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance([LocationManager sharedManager].location, 10000, 10000);
-    [mapView setRegion:viewRegion animated:YES];
+    [mapView.mapView setRegion:viewRegion animated:YES];
     
 }
-- (MKAnnotationView *)mapView:(MKMapView *)mapViewParam viewForAnnotation:(id <MKAnnotation>)annotation {
-    static NSString *identifier = @"VenueLocation";
-    if ([annotation isKindOfClass:[VenueLocation class]]) {
-        
-        MKAnnotationView *annotationView = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-        if (annotationView == nil) {
-            MKPinAnnotationView *pin =[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
-            pin.canShowCallout = YES;
-            pin.animatesDrop = NO;
-            pin.draggable = NO;
-            annotationView = pin;
-            annotationView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            UIButton* go = [UIButton buttonWithType:UIButtonTypeSystem];
-            [go setTitle:@"Retirer" forState:UIControlStateNormal];
-            CGRect buttonFrame = go.frame;
-            buttonFrame.size = CGSizeMake(64, 32); //Height is limited to 32 pixels
-            go.frame = buttonFrame;
-            annotationView.rightCalloutAccessoryView = go;
-        } else {
-            annotationView.annotation = annotation;
-        }
-        
-        return annotationView;
-    }
-    
-    return nil;
-}
-
-- (void)mapView:(MKMapView *)mapViewParam annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+- (IBAction) showSelectVenuesList:(id)sender
 {
-    UIButton* button = (UIButton*)control;
-    VenueLocation* venue = view.annotation;
-    if(button.buttonType == UIButtonTypeDetailDisclosure)
-    {
-        VenueDetailViewController* vc = [[VenueDetailViewController alloc] initWithNibName:@"VenueDetailViewController" bundle:nil];
-        [vc setFID:venue.fID];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else
-    {
-        [[VenuesManager sharedManager] removeVenue:venue.fID];
-        [mapView removeAnnotation:venue];
-    }
+    
 }
 
 - (void)didReceiveMemoryWarning

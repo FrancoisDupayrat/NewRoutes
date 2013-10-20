@@ -12,8 +12,10 @@
 {
     UITableView* tableView;
     NSMutableArray* categories;
+    UINavigationItem* navTitle;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UINavigationItem* navTitle;
 
 @end

@@ -14,12 +14,14 @@
     NSString* name;
     NSString* fID;
     CLLocationCoordinate2D coordinate;
+    BOOL isSelected;
 }
 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* fID;
-@property (nonatomic, readonly) NSString* title;
+@property (nonatomic, copy) NSString* title;
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, assign) BOOL isSelected;
 
 - (id)initWithName:(NSString*)name id:(NSString*)fID coordinate:(CLLocationCoordinate2D)coordinate;
 - (MKMapItem*)mapItem;

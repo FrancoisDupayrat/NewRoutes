@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "MapView.h"
 
 @interface DirectionsMapViewController : UIViewController <MKMapViewDelegate>
 {
-    MKMapView* mapView;
+    MapView* mapView;
+    UINavigationItem* navTitle;
+    UIBarButtonItem* venuesCountItem;
 }
 
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet MapView *mapView;
+@property (strong, nonatomic) IBOutlet UINavigationItem* navTitle;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem* venuesCountItem;
+
+- (IBAction) showSelectVenuesList:(id)sender;
 
 @end

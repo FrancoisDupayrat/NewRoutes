@@ -13,6 +13,7 @@
 @synthesize name;
 @synthesize fID;
 @synthesize coordinate;
+@synthesize isSelected;
 
 - (id)initWithName:(NSString*)nameParam id:(NSString*)fIDParam coordinate:(CLLocationCoordinate2D)coordinateParam {
     if ((self = [super init]))
@@ -20,6 +21,7 @@
         self.name = nameParam;
         self.fID = fIDParam;
         self.coordinate = coordinateParam;
+        isSelected = NO;
     }
     return self;
 }

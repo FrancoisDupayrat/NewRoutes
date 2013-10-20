@@ -91,6 +91,7 @@
         NSString* currentCategoryName = [NSString stringWithFormat:@"%@ | %@", prefix, [category objectForKey:@"name"]];
         if(subCategories != nil)
         {
+            NSLog(@"%@, id : %@", currentCategoryName, [category objectForKey:@"id"]);
             [self printCategoriesIn:subCategories prefix:currentCategoryName];
         }
         else

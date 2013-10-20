@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DirectionsMapViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VenuesOrderMapViewController">
             <connections>
-                <outlet property="mapView" destination="qdE-0A-hPn" id="Dr8-GY-Pog"/>
-                <outlet property="navTitle" destination="hXY-D6-fzx" id="jas-T9-aaE"/>
+                <outlet property="mapView" destination="POi-Ma-M9a" id="sJh-6f-3Re"/>
+                <outlet property="navTitle" destination="hXY-D6-fzx" id="e3T-lQ-foy"/>
                 <outlet property="venuesCountItem" destination="h4f-O2-KhH" id="SjH-Jr-eWv"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -21,29 +21,32 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Trajet" id="hXY-D6-fzx">
-                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pFX-GI-2uS"/>
+                        <navigationItem title="Ordre des visites" id="hXY-D6-fzx">
+                            <barButtonItem key="rightBarButtonItem" title="Trajet" id="0hr-kI-NTx">
+                                <connections>
+                                    <action selector="showDirections:" destination="-1" id="dZ0-pB-guy"/>
+                                </connections>
+                            </barButtonItem>
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="POi-Ma-M9a">
+                    <rect key="frame" x="0.0" y="44" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </mapView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTw-wg-sz2">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem title="0 lieux sélectionnés" id="h4f-O2-KhH"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ZFn-vf-MQl"/>
-                        <barButtonItem title="Aperçu" id="MXX-Iu-bEH">
+                        <barButtonItem title="Changer l'ordre" id="MXX-Iu-bEH">
                             <connections>
                                 <action selector="showSelectVenuesList:" destination="-1" id="hkn-sM-4pD"/>
                             </connections>
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdE-0A-hPn" customClass="MapView">
-                    <rect key="frame" x="0.0" y="44" width="320" height="480"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

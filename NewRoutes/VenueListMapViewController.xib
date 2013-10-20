@@ -7,6 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VenueListMapViewController">
             <connections>
                 <outlet property="mapView" destination="gLN-aC-dGP" id="jfp-tD-mZp"/>
+                <outlet property="navTitle" destination="DVu-eO-hdQ" id="Djt-94-BEg"/>
+                <outlet property="venuesCountItem" destination="EPO-xI-Eq1" id="pCv-aG-O7a"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -19,16 +21,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Title" id="DVu-eO-hdQ">
-                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ckz-bG-wg5"/>
-                        </navigationItem>
+                        <navigationItem title="Title" id="DVu-eO-hdQ"/>
                     </items>
                 </navigationBar>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phk-TD-REp">
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem title="Item" id="EPO-xI-Eq1"/>
+                        <barButtonItem title="0 lieux sélectionnés" id="EPO-xI-Eq1"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="B0L-XY-559"/>
+                        <barButtonItem title="Aperçu" id="WUZ-F3-ZBv">
+                            <connections>
+                                <action selector="showSelectVenuesList:" destination="-1" id="dWZ-xy-Yv8"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLN-aC-dGP">
