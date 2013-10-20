@@ -55,6 +55,18 @@ static VenuesManager* _sharedManager = nil;
     [selectedVenues addObject:venueInfos];
 }
 
+- (int) getIndex:(NSString*)fID
+{
+    for(int i = 0; i < selectedVenues.count; i++)
+    {
+        NSDictionary* infos = [selectedVenues objectAtIndex:i];
+        if([fID isEqualToString:[infos objectForKey:@"id"]])
+        {
+            return i;
+        }
+    }
+    return -1;
+}
 - (void)removeVenue:(NSString*)fID
 {
     NSDictionary* target = nil;

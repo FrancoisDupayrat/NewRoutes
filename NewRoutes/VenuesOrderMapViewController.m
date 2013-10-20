@@ -67,6 +67,54 @@
     [mapView setRegion:viewRegion animated:YES];
     
 }
+
+-(UIImage *)imageFromText:(NSString *)text
+{
+    // set the font type and size
+    UIFont *font = [UIFont systemFontOfSize:12.0];
+    CGSize size  = [text sizeWithFont:font];
+    
+    // check if UIGraphicsBeginImageContextWithOptions is available (iOS is 4.0+)
+    if (UIGraphicsBeginImageContextWithOptions != NULL)
+        UIGraphicsBeginImageContextWithOptions(size,NO,0.0);
+    else
+        // iOS is < 4.0
+        UIGraphicsBeginImageContext(size);
+    
+    // optional: add a shadow, to avoid clipping the shadow you should make the context size bigger
+    //
+    // CGContextRef ctx = UIGraphicsGetCurrentContext();
+    // CGContextSetShadowWithColor(ctx, CGSizeMake(1.0, 1.0), 5.0, [[UIColor grayColor] CGColor]);
+    
+    // draw in context, you can use also drawInRect:withFont:
+    [text drawAtPoint:CGPointMake(0.0, 0.0) withFont:font];
+    
+    // transfer image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+- (UIImage*)imageByCombiningImage:(UIImage*)firstImage withImage:(UIImage*)secondImage {
+    UIImage *image = nil;
+    
+    CGSize newImageSize = CGSizeMake(MAX(firstImage.size.width, secondImage.size.width), MAX(firstImage.size.height, secondImage.size.height));
+    if (UIGraphicsBeginImageContextWithOptions != NULL) {
+        UIGraphicsBeginImageContextWithOptions(newImageSize, NO, [[UIScreen mainScreen] scale]);
+    } else {
+        UIGraphicsBeginImageContext(newImageSize);
+    }
+    [firstImage drawAtPoint:CGPointMake(roundf((newImageSize.width-firstImage.size.width)/2),
+                                        roundf((newImageSize.height-firstImage.size.height)/2))];
+    [secondImage drawAtPoint:CGPointMake(roundf((newImageSize.width-secondImage.size.width)/2),
+                                         roundf((newImageSize.height-secondImage.size.height)/2))];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapViewParam viewForAnnotation:(id <MKAnnotation>)annotation {
     static NSString *identifier = @"VenueLocation";
     if ([annotation isKindOfClass:[VenueLocation class]]) {
@@ -78,6 +126,11 @@
             pin.animatesDrop = NO;
             pin.draggable = NO;
             annotationView = pin;
+            int number = [[VenuesManager sharedManager] getIndex:((VenueLocation*)annotation).fID] + 1;
+            UIImage* textImage = [self imageFromText:number == -1 ? @"?" : [NSString stringWithFormat:@"%d", number]];
+            UIImage* pinImage = [UIImage imageNamed:@"green_pin.png"];
+            UIImage* result = [self imageByCombiningImage:pinImage withImage:textImage];
+            annotationView.image = result;
             annotationView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             UIButton* go = [UIButton buttonWithType:UIButtonTypeSystem];
             [go setTitle:@"Retirer" forState:UIControlStateNormal];
