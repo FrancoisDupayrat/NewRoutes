@@ -37,6 +37,8 @@
 {
     NSArray* venues = [[VenuesManager sharedManager] selectedVenues];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(showDirections:)];
+    self.navigationItem.title = @"Ordre des visites";
+    
     int count = (int)venues.count;
     NSString* title = count == 0 ? @"Aucun lieu sélectionné" :
     count == 1 ? @"Un lieu sélectionné" :

@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Lieu";
     // Do any additional setup after loading the view from its nib.
 }
 

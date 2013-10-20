@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Bienvenue";
     // Do any additional setup after loading the view from its nib.
 }
 

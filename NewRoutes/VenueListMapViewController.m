@@ -42,7 +42,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextScreen:)];
-    [navTitle setTitle:[category objectForKey:@"name"]];
+    self.navigationItem.title = [category objectForKey:@"name"];
+    
     NSArray* venues = [VenuesManager sharedManager].selectedVenues;
     int count = (int)venues.count;
     NSString* title = count == 0 ? @"Aucun lieu sélectionné" :

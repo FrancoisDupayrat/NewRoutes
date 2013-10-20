@@ -34,6 +34,7 @@
 
 - (void)viewDidLoad
 {
+    self.navigationItem.title = @"Trajet";
     [mapView initWithFrame:mapView.frame];
     NSArray* venues = [[VenuesManager sharedManager] selectedVenues];
     VenueLocation* previous = nil;

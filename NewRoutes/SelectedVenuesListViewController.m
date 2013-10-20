@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Lieux sélectionnés";
     // Do any additional setup after loading the view from its nib.
 }
 
