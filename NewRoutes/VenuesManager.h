@@ -20,6 +20,8 @@
 
 - (void)selectVenue:(VenueLocation*)venue;
 - (void)removeVenue:(NSString*)fID;
+- (NSDictionary*) venueAtIndex:(int)index;
+- (int) count;
 - (int) getIndex:(NSString*)fID;
 
 @end

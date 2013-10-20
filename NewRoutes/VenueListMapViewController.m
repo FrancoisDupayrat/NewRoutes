@@ -15,6 +15,7 @@
 #import "VenuesOrderMapViewController.h"
 #import "VenueDetailViewController.h"
 #import "VenuesManager.h"
+#import "SelectedVenuesListViewController.h"
 
 @interface VenueListMapViewController ()
 
@@ -182,7 +183,8 @@
 
 - (IBAction) showSelectVenuesList:(id)sender
 {
-    
+    SelectedVenuesListViewController* vc = [[SelectedVenuesListViewController alloc] initWithNibName:@"SelectedVenuesListViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction) nextScreen:(id)sender

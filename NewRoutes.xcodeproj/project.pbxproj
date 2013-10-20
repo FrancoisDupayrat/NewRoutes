@@ -13,6 +13,8 @@
 		6A8459941813F3ED006B2194 /* Icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459901813F3ED006B2194 /* Icon76.png */; };
 		6A8459951813F3ED006B2194 /* Icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459911813F3ED006B2194 /* Icon120.png */; };
 		6A8459961813F3ED006B2194 /* Icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459921813F3ED006B2194 /* Icon152.png */; };
+		6A84599A1813F4EB006B2194 /* SelectedVenuesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8459981813F4EB006B2194 /* SelectedVenuesListViewController.m */; };
+		6A84599B1813F4EB006B2194 /* SelectedVenuesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A8459991813F4EB006B2194 /* SelectedVenuesListViewController.xib */; };
 		6ABCB3E518129FFB00A10290 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABCB3E418129FFB00A10290 /* Foundation.framework */; };
 		6ABCB3E718129FFB00A10290 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABCB3E618129FFB00A10290 /* CoreGraphics.framework */; };
 		6ABCB3E918129FFB00A10290 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABCB3E818129FFB00A10290 /* UIKit.framework */; };
@@ -69,6 +71,9 @@
 		6A8459901813F3ED006B2194 /* Icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon76.png; sourceTree = "<group>"; };
 		6A8459911813F3ED006B2194 /* Icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon120.png; sourceTree = "<group>"; };
 		6A8459921813F3ED006B2194 /* Icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon152.png; sourceTree = "<group>"; };
+		6A8459971813F4EB006B2194 /* SelectedVenuesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedVenuesListViewController.h; sourceTree = "<group>"; };
+		6A8459981813F4EB006B2194 /* SelectedVenuesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedVenuesListViewController.m; sourceTree = "<group>"; };
+		6A8459991813F4EB006B2194 /* SelectedVenuesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedVenuesListViewController.xib; sourceTree = "<group>"; };
 		6ABCB3E118129FFB00A10290 /* NewRoutes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewRoutes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABCB3E418129FFB00A10290 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6ABCB3E618129FFB00A10290 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -269,6 +274,9 @@
 				6AFC4FDB18131828003BB990 /* VenueDetailViewController.h */,
 				6AFC4FDC18131828003BB990 /* VenueDetailViewController.m */,
 				6AFC4FDD18131828003BB990 /* VenueDetailViewController.xib */,
+				6A8459971813F4EB006B2194 /* SelectedVenuesListViewController.h */,
+				6A8459981813F4EB006B2194 /* SelectedVenuesListViewController.m */,
+				6A8459991813F4EB006B2194 /* SelectedVenuesListViewController.xib */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -394,6 +402,7 @@
 				6AFC4FBC1812BA92003BB990 /* RootViewController.xib in Resources */,
 				6AFC4FDF18131828003BB990 /* VenueDetailViewController.xib in Resources */,
 				6A8459961813F3ED006B2194 /* Icon152.png in Resources */,
+				6A84599B1813F4EB006B2194 /* SelectedVenuesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +457,7 @@
 				6AFC4FBF1812C4DD003BB990 /* LocationManager.m in Sources */,
 				6AFC4FE51813B9B3003BB990 /* VenuesOrderMapViewController.m in Sources */,
 				6ABCB3F518129FFB00A10290 /* AppDelegate.m in Sources */,
+				6A84599A1813F4EB006B2194 /* SelectedVenuesListViewController.m in Sources */,
 				6AFC4FFF1813D0C5003BB990 /* RegexKitLite.m in Sources */,
 				6AFC4FF51813CE38003BB990 /* Place.m in Sources */,
 				6AFC4FD9181304E1003BB990 /* DirectionsMapViewController.m in Sources */,

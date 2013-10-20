@@ -83,4 +83,14 @@ static VenuesManager* _sharedManager = nil;
     }
 }
 
+- (NSDictionary*) venueAtIndex:(int)index
+{
+    return [selectedVenues objectAtIndex:index];
+}
+
+- (int) count
+{
+    return selectedVenues.count;
+}
+
 @end

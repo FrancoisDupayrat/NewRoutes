@@ -11,6 +11,7 @@
 #import "VenueLocation.h"
 #import "LocationManager.h"
 #import "VenueDetailViewController.h"
+#import "SelectedVenuesListViewController.h"
 
 @interface DirectionsMapViewController ()
 
@@ -87,7 +88,8 @@
 }
 - (IBAction) showSelectVenuesList:(id)sender
 {
-    
+    SelectedVenuesListViewController* vc = [[SelectedVenuesListViewController alloc] initWithNibName:@"SelectedVenuesListViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
